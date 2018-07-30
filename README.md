@@ -1,4 +1,4 @@
-[This project is a WIP](http://www.repostatus.org/badges/latest/wip.svg)
+[This project is a WIP](http://www.repostatus.org/badges/latest/wip.svg "wip badge")
 
 # spring-security-keycloak
 
