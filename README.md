@@ -1,3 +1,5 @@
+[This project is a WIP](http://www.repostatus.org/badges/latest/wip.svg)
+
 # spring-security-keycloak
 
 This project uses spring-security-oauth2 securing a resource server.
