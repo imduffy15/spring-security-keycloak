@@ -1,0 +1,53 @@
+swagger: '2.0'
+info:
+  description: |
+    Service 1
+  version: 0.0.1
+  title: Service 1
+  contact:
+    email: spring-security-keycloak@ianduffy.ie
+produces:
+  - application/json
+  - application/problem+json
+securityDefinitions:
+  openId:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: http://automatically/replaced/on/runtime
+security:
+  - openId: []
+paths:
+  /api/endpoint/forward:
+    get:
+      parameters:
+        - in: query
+          name: from
+          type: string
+          description: The calling actor
+          default: root
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/path"
+  /api/endpoint/base:
+    get:
+      parameters:
+        - in: query
+          name: from
+          type: string
+          description: The calling actor
+          default: root
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/path"
+definitions:
+    path:
+      type: object
+      properties:
+        name:
+          type: string
+        child:
+          $ref: "#/definitions/path"

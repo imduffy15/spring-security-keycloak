@@ -1,0 +1,67 @@
+management:
+    endpoints:
+        web:
+            base-path: /
+            exposure:
+                include: ["health", "info"]
+    info:
+        git:
+            mode: full
+    health:
+        mail:
+            enabled: false
+    server:
+      port: 7979
+      add-application-context-header: false
+
+spring:
+  application:
+    name: #project.name#
+  profiles:
+      active: #spring.profiles.active#
+  jackson:
+    joda-date-time-format: yyyy-MM-dd'T'HH:mm:ss.SSSZ
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: NON_NULL
+    deserialization:
+      use-big-decimal-for-floats: true
+      read-enums-using-to-string: true
+    serialization:
+      write-dates-as-timestamps: false
+      write-enums-using-to-string: true
+    mapper:
+      default-view-inclusion: false
+      sort-properties-alphabetically: true
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  mvc:
+    favicon:
+      enabled: false
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+
+info:
+  project:
+    version: #project.version#
+
+swagger:
+    path: /swagger/api.yaml
+
+server:
+  port: 8080
+
+keycloak:
+  url: http://localhost:9080
+  realm: ACME
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/userinfo
+      token-info-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/token/introspect
+      authorization-token-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/auth
+      jwk:
+        key-set-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/certs
+
+downstream:
+  url: http://localhost:8080/api/endpoint/base
