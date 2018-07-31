@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ie.ianduffy.poc</groupId>
+    <artifactId>spring-security-keycloak</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+
+    <name>spring-security-keycloak</name>
+    <description>Example of using spring security and keycloak to secure services</description>
+    <modules>
+        <module>service-1</module>
+        <module>service-2</module>
+        <module>service-3</module>
+    </modules>
+</project>

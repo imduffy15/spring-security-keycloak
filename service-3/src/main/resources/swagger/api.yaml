@@ -1,0 +1,24 @@
+swagger: '2.0'
+info:
+  description: |
+    Service 3
+  version: 0.0.1
+  title: Service 3
+  contact:
+    email: service1@ianduffy.ie
+produces:
+  - application/json
+  - application/problem+json
+securityDefinitions:
+  openId:
+    type: oauth2
+    flow: implicit
+    authorizationUrl: http://automatically/replaced/on/runtime
+security:
+  - openId: []
+paths:
+  /api/endpoint:
+    get:
+      responses:
+        200:
+          description: Success
