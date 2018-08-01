@@ -1,23 +1,41 @@
-[This project is a WIP](http://www.repostatus.org/badges/latest/wip.svg "wip badge")
-
 # spring-security-keycloak
 
 This project uses spring-security-oauth2 a resource server to protect endpoints using Keycloak.
 
-## Components
+Video walkthrough here: https://drive.google.com/file/d/1Rt9BAbanDrgA2dglGXDqCSd3zatisBdM/view
 
-### Resource servers
+## Getting up and running
 
-#### Service-1, Service-2, Service-3
+### Start up keycloak
 
-All of these services have the same resource server configuration and demonstrate token relaying.
+```
+cd keycloak
+docker-compose -f docker-compose-import.yaml up --force-recreate --build
+```
 
-### Keycloak
+### Start up the services
 
-Keycloak acts as the authorization service. It will generate the tokens used to access our application.
+Terminal 1:
 
-## Description
+```
+./start-service-1.sh
+```
 
-This example gives an endpoint at service-1:8080, that calls another endpoint at service-2:8081, which finally calls service-3 which gives a response to the initial request.
+Terminal 2:
 
-The call to service-1 uses a JWT acces token passed via the `Authorization` header with type `Bearer`. The resource server validates the token and exposes it via the security context. The `OAuth2RestTemplate` relays this JWT to the downstream endpoint service-2:8081, which relays the request to service-3:8082 which responses to the initial request.
+```
+./start-service-2.sh
+```
+
+Terminal 3:
+
+```
+./start-service-3.sh
+```
+
+### Access service 1
+
+Head over to [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) in your browser.
+Click the authorize button and it will use keycloak to get a JWT token, the default login is admin/password.
+
+Once authorize you can execute the `/api/endpoint/forward` endpoint and you'll see your token being relayed through the 3 services.
