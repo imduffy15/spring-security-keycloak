@@ -50,18 +50,11 @@ swagger:
 server:
   port: 8080
 
-keycloak:
-  url: http://localhost:9080
-  realm: ACME
-
 security:
-  oauth2:
-    resource:
-      user-info-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/userinfo
-      token-info-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/token/introspect
-      authorization-token-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/auth
-      jwk:
-        key-set-uri: ${keycloak.url}/auth/realms/${keycloak.realm}/protocol/openid-connect/certs
+  jwk-cert-uris: http://localhost:9080/auth/realms/default/protocol/openid-connect/certs, http://localhost:9080/auth/realms/tenant1/protocol/openid-connect/certs, http://localhost:9080/auth/realms/tenant2/protocol/openid-connect/certs
+  default-resource:
+    authorization-token-uri: http://localhost:9080/auth/realms/default/protocol/openid-connect/auth
+  aud: demo
 
 downstream:
   url: http://localhost:8080/api/endpoint/base

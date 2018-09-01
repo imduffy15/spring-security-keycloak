@@ -1,5 +1,5 @@
 {
-  "realm" : "ACME",
+  "realm" : "tenant1",
   "users" : [ {
     "id" : "7114810c-4265-47f8-bb93-d0307c097016",
     "createdTimestamp" : 1530177035843,
@@ -7,9 +7,8 @@
     "enabled" : true,
     "totp" : false,
     "emailVerified" : true,
-    "firstName" : "System",
-    "lastName" : "Administrator",
-    "email" : "me@ianduffy.ie",
+    "firstName" : "",
+    "lastName" : "",
     "credentials" : [ {
       "type" : "password",
       "hashedSaltedValue" : "U0OZzGu7gHB+uJoJgASbCY/jR1FBZ0eeXzvBp5KDYRG9yv2PG9uRQKbdoeFqwaGeKSswY0IiXGbCf1jeHF/b7A==",
@@ -23,7 +22,6 @@
     } ],
     "disableableCredentialTypes" : [ "password" ],
     "requiredActions" : [ ],
-    "realmRoles" : [ "offline_access", "uma_authorization" ],
     "clientRoles" : {
       "account" : [ "manage-account", "view-profile" ]
     },

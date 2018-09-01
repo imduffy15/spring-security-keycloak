@@ -15,7 +15,7 @@ public class SwaggerConfig {
 
     private String name;
 
-    public SwaggerConfig(@Value("${spring.application.name}") String name) {
+    public SwaggerConfig(@Value("${security.aud}") String name) {
         this.name = name;
     }
 

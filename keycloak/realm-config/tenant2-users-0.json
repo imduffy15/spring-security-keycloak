@@ -1,0 +1,30 @@
+{
+  "realm" : "tenant2",
+  "users" : [ {
+    "id" : "fb827e31-dee8-4824-94aa-b552e59f4ea5",
+    "createdTimestamp" : 1535761138511,
+    "username" : "admin",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "credentials" : [ {
+      "type" : "password",
+      "hashedSaltedValue" : "+QbwIXY9GAYrYRCRqIAtCBF+usqXSgZvnxRiJSG8Ed2+OF8MI+8fuTYUC5DB/EmyHtZE69RRXH5EonioVSB7DQ==",
+      "salt" : "N7Jsk6RqXRGLx/YZAhV7Eg==",
+      "hashIterations" : 27500,
+      "counter" : 0,
+      "algorithm" : "pbkdf2-sha256",
+      "digits" : 0,
+      "period" : 0,
+      "createdDate" : 1535761146644,
+      "config" : { }
+    } ],
+    "disableableCredentialTypes" : [ "password" ],
+    "requiredActions" : [ ],
+    "clientRoles" : {
+      "account" : [ "manage-account", "view-profile" ]
+    },
+    "notBefore" : 0,
+    "groups" : [ ]
+  } ]
+}
