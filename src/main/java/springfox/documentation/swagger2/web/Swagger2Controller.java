@@ -44,7 +44,7 @@ public class Swagger2Controller {
         DocumentationCache documentationCache,
         ServiceModelToSwagger2Mapper mapper,
         JsonSerializer jsonSerializer) throws IOException {
-        this.authorizationUrlOverride = environment.getProperty("security.oauth2.resource.authorization-token-uri");
+        this.authorizationUrlOverride = environment.getProperty("security.default-resource.authorization-token-uri");
         this.documentationCache = documentationCache;
         this.mapper = mapper;
         this.jsonSerializer = jsonSerializer;
